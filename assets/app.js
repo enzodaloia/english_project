@@ -6,15 +6,14 @@
  */
 import './styles/app.css';
 import './styles/responsive.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+
+
 
 import $ from 'jquery';
-
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap';
-
+import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import 'typeface-roboto';
-
-import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
 $(document).ready(function(){
     $(".owl-carousel").owlCarousel({
