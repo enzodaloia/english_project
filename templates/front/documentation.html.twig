@@ -42,7 +42,7 @@
         </svg>
     </div>
     {% for card in cards %}
-        {{ card.file }}
+        <img src="{{ asset(card.image.path) }}"></img>
         {{ card.title }}
         {{ card.description }}
         {{ card.type }}
