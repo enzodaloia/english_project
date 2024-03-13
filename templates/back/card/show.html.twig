@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_back.html.twig' %}
 
 {% block title %}Card{% endblock %}
 
@@ -30,5 +30,5 @@
 
     <a href="{{ path('app_card_edit', {'id': card.id}) }}">edit</a>
 
-    {{ include('card/_delete_form.html.twig') }}
+    {{ include('back/card/_delete_form.html.twig') }}
 {% endblock %}

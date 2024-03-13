@@ -23,6 +23,9 @@ class Card
     #[ORM\Column]
     private ?int $type = null;
 
+    #[ORM\ManyToOne(inversedBy: 'cards')]
+    private ?Image $image = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Card
     public function setType(int $type): static
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getImage(): ?Image
+    {
+        return $this->image;
+    }
+
+    public function setImage(?Image $image): static
+    {
+        $this->image = $image;
 
         return $this;
     }
