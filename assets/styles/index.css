@@ -8,3 +8,36 @@
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+
+.button {
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #4FD1C5; /* Change this color to match your design */
+    transform: scale(1.05);
+}
+
+/* Style de base pour les cartes dans la section spécifiée */
+section.bg-white.border-b.py-8 .flex-1.bg-white.rounded-t.rounded-b-none.overflow-hidden.shadow {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Effet au survol des cartes dans la section spécifiée */
+section.bg-white.border-b.py-8 .flex-1.bg-white.rounded-t.rounded-b-none.overflow-hidden.shadow:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Style et animation des boutons dans la section spécifiée */
+section.bg-white.border-b.py-8 .button,
+section.bg-white.border-b.py-8 .mx-auto.lg:mx-0.hover:underline.gradient.text-white.font-bold.rounded-full.my-6.py-4.px-8.shadow-lg {
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+section.bg-white.border-b.py-8 .button:hover,
+section.bg-white.border-b.py-8 .mx-auto.lg:mx-0.hover:underline.gradient.text-white.font-bold.rounded-full.my-6.py-4.px-8.shadow-lg:hover {
+    background-color: #4FD1C5; /* Ajustez cette couleur pour qu'elle corresponde à votre design */
+    transform: scale(1.05);
+}
