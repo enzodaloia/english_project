@@ -1,0 +1,10 @@
+/* Style de base pour les cartes */
+.flex-1.flex-col.bg-white.rounded-t.rounded-b-none.overflow-hidden.shadow {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Effet au survol des cartes */
+.flex-1.flex-col.bg-white.rounded-t.rounded-b-none.overflow-hidden.shadow:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
