@@ -42,10 +42,15 @@
         </svg>
     </div>
     {% for card in cards %}
-        <img src="{{ asset(card.image.path) }}"></img>
+        {# <img src="{{ asset(card.image.path) }}"></img>
         {{ card.title }}
         {{ card.description }}
-        {{ card.type }}
+        {{ card.type }} #}
+        {% if card.type == 1 %}
+        mon image est à gauche -> car type = {{ card.type }};<br>
+        {% elseif card.type == 2 %}
+        mon image est à droite  -> car type = {{ card.type }};<br>
+        {% endif %}
     {% endfor %}
 </body>
 

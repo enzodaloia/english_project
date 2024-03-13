@@ -3,9 +3,11 @@
 {% block title %}New Card{% endblock %}
 
 {% block body %}
-    <h1>Create new Card</h1>
+    <h1 class="text-3xl font-bold mb-4">Create new Card</h1>
+
+    <div class="mb-4">
+        <a href="{{ path('app_card_index') }}" class="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer">Back to list</a>
+    </div>
 
     {{ include('back/card/_form.html.twig') }}
-
-    <a href="{{ path('app_card_index') }}">back to list</a>
 {% endblock %}
