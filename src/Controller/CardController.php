@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Card;
+use App\Entity\Image;
 use App\Form\CardType;
 use App\Repository\CardRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -30,6 +32,22 @@ class CardController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $form->get('file')->getData();
+            if ($file) {
+                $pathUpload = "images/";
+                $name = $file->getClientOriginalName();
+                $oImage = new Image();
+                $oImage->setNom($name);
+                $oImage->setPath($pathUpload.$name);
+                $entityManager->persist($oImage);
+                $card->setImage($oImage);
+                $entityManager->persist($card);
+                $entityManager->flush();
+                try {
+                    $file->move($pathUpload,$name);
+                } catch (FileException $e) {
+                }
+            }
             $entityManager->persist($card);
             $entityManager->flush();
 
@@ -57,6 +75,27 @@ class CardController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $form->get('file')->getData();
+            if ($file) {
+                $pathUpload = "images/";
+                $name = $file->getClientOriginalName();
+                $oImage = $card->getImage();
+                $oImage->setNom($name);
+                $oImage->setPath($pathUpload.$name);
+                $entityManager->persist($oImage);
+                $card->setImage($oImage);
+                $entityManager->persist($card);
+
+                $entityManager->flush();
+                try {
+                    $file->move(
+                        $pathUpload,
+                        $name
+                    );
+                } catch (FileException $e) {
+                }
+            }
+            $entityManager->persist($card);
             $entityManager->flush();
 
             return $this->redirectToRoute('app_card_index', [], Response::HTTP_SEE_OTHER);
