@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Contact{% endblock %}
+
+{% block body %}
+    <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+        <div class="pt-24">
+            <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+                <!--Left Col-->
+                <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+                <p class="uppercase tracking-loose w-full">What is Symfony?</p>
+                <h1 class="my-4 text-5xl font-bold leading-tight">
+                    It's a very useful php framework
+                </h1>
+                <p class="leading-normal text-2xl mb-8">
+                    With this site, you will learn the basics of Symfony in order to create your first dynamic project!
+                </p>
+                </div>
+                <!--Right Col-->
+                <div class="w-full md:w-3/5 py-6 text-center">
+                <img class="w-full md:w-4/5 z-50" src="{{ asset('images/hero.png') }}" />
+                </div>
+            </div>
+        </div>
+    </body>
+    <center><h1 style="font-size: 50px;">Contact us</h1></center>
+    <div class="w-full max-w-xl mx-auto mb-4">
+        <br><br><br><br>
+        {{ include('/back/contact/_form.html.twig') }}
+    </div>
+{% endblock %}

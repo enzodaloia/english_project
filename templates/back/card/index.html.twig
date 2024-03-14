@@ -17,7 +17,7 @@
             <tr>
               <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Id</th>
               <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Title</th>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Description</th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">token</th>
               <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Type</th>
               <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">actions</th>
             </tr>
@@ -27,11 +27,11 @@
             <tr class="bg-gray-100 border-b">
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ card.id }}</td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ card.title }}</td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ card.description }}</td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ card.token }}</td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ card.type }}</td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <a href="{{ path('app_card_show', {'id': card.id}) }}" class="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer">SHOW</a>
-                <a href="{{ path('app_card_edit', {'id': card.id}) }}" class="px-4 py-2 bg-green-500 text-white rounded cursor-pointer">EDIT</a>
+                <a href="{{ path('app_card_show', {'token': card.token}) }}" class="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer">SHOW</a>
+                <a href="{{ path('app_card_edit', {'token': card.token}) }}" class="px-4 py-2 bg-green-500 text-white rounded cursor-pointer">EDIT</a>
               </td>
             </tr>
           {% else %}

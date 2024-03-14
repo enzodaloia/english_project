@@ -60,7 +60,7 @@ class CardController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_card_show', methods: ['GET'])]
+    #[Route('/{token}', name: 'app_card_show', methods: ['GET'])]
     public function show(Card $card): Response
     {
         return $this->render('back/card/show.html.twig', [
@@ -68,7 +68,7 @@ class CardController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_card_edit', methods: ['GET', 'POST'])]
+    #[Route('/{token}/edit', name: 'app_card_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Card $card, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(CardType::class, $card);

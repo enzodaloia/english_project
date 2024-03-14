@@ -26,6 +26,14 @@ class Card
     #[ORM\ManyToOne(inversedBy: 'cards')]
     private ?Image $image = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $token = null;
+
+    public function __construct()
+    {
+        $this->token = bin2hex(random_bytes(32));
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +83,18 @@ class Card
     public function setImage(?Image $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getToken(): ?string
+    {
+        return $this->token;
+    }
+
+    public function setToken(?string $token): static
+    {
+        $this->token = $token;
 
         return $this;
     }
