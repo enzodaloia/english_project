@@ -1,23 +1,106 @@
-{{ form_start(form, {'attr': {'class': 'space-y-4'}}) }}
-    <div style="color: black;">
-        {{ form_label(form.nom, null, {'label_attr': {'class': 'font-bold text-gray-700'}}) }}
-        {{ form_widget(form.nom, {'attr': {'class': 'form-input mt-1 block w-full p-2 border border-gray-300 rounded-md'}}) }}
+<style>
+    .my-form-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .my-form-area {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #EDDCD9;
+        height: auto;
+        width: auto;
+        border: 2px solid #264143;
+        border-radius: 20px;
+        box-shadow: 3px 4px 0px 1px #E99F4C;
+    }
+
+    .my-form-title {
+        color: #264143;
+        font-weight: 900;
+        font-size: 1.5em;
+        margin-top: 20px;
+    }
+
+    .my-form-sub-title {
+        font-weight: 600;
+        margin: 5px 0;
+    }
+
+    .my-form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        margin: 10px;
+    }
+
+    .my-form-style {
+        outline: none;
+        border: 2px solid #264143;
+        box-shadow: 3px 4px 0 1px #E99F4C;
+        width: 290px;
+        padding: 12px 10px;
+        border-radius: 4px;
+        font-size: 15px;
+        color: black;
+        background-color: white;
+    }
+
+    .my-form-style:focus, .my-form-btn:focus {
+        transform: translateY(4px);
+        box-shadow: 1px 2px 0 0 #E99F4C;
+    }
+
+    .my-form-btn {
+        padding: 15px;
+        margin: 25px 0px;
+        width: 290px;
+        font-size: 15px;
+        background: #DE5499;
+        border-radius: 10px;
+        font-weight: 800;
+        box-shadow: 3px 3px 0 0 #E99F4C;
+    }
+
+    .my-form-btn:hover {
+        opacity: .9;
+    }
+
+    .my-form-link {
+        font-weight: 800;
+        color: #264143;
+        padding: 5px;
+    }
+</style>
+
+{{ form_start(form, {'attr': {'class': 'my-form-container'}}) }}
+<div class="my-form-area">
+    <p class="my-form-title">Questions ?</p>
+    <div class="my-form-group">
+        {{ form_label(form.nom, null, {'label_attr': {'class': 'my-form-sub-title'}}) }}
+        {{ form_widget(form.nom, {'attr': {'class': 'my-form-style', 'placeholder': 'Enter your full name'}}) }}
     </div>
-    <div style="color: black;">
-        {{ form_label(form.prenom, null, {'label_attr': {'class': 'font-bold text-gray-700'}}) }}
-        {{ form_widget(form.prenom, {'attr': {'class': 'form-input mt-1 block w-full p-2 border border-gray-300 rounded-md'}}) }}
+    <div class="my-form-group">
+        {{ form_label(form.prenom, null, {'label_attr': {'class': 'my-form-sub-title'}}) }}
+        {{ form_widget(form.prenom, {'attr': {'class': 'my-form-style', 'placeholder': 'Enter your first name'}}) }}
     </div>
-    <div style="color: black;">
-        {{ form_label(form.email, null, {'label_attr': {'class': 'font-bold text-gray-700'}}) }}
-        {{ form_widget(form.email, {'attr': {'class': 'form-input mt-1 block w-full p-2 border border-gray-300 rounded-md'}}) }}
+    <div class="my-form-group">
+        {{ form_label(form.email, null, {'label_attr': {'class': 'my-form-sub-title'}}) }}
+        {{ form_widget(form.email, {'attr': {'class': 'my-form-style', 'placeholder': 'Enter your email'}}) }}
     </div>
-    <div style="color: black;">
-        {{ form_label(form.sujet, null, {'label_attr': {'class': 'font-bold text-gray-700'}}) }}
-        {{ form_widget(form.sujet, {'attr': {'class': 'form-input mt-1 block w-full p-2 border border-gray-300 rounded-md'}}) }}
+    <div class="my-form-group">
+        {{ form_label(form.sujet, null, {'label_attr': {'class': 'my-form-sub-title'}}) }}
+        {{ form_widget(form.sujet, {'attr': {'class': 'my-form-style', 'placeholder': 'Enter the subject'}}) }}
     </div>
-    <div style="color: black;">
-        {{ form_label(form.message, null, {'label_attr': {'class': 'font-bold text-gray-700'}}) }}
-        {{ form_widget(form.message, {'attr': {'class': 'form-input mt-1 block w-full p-2 border border-gray-300 rounded-md'}}) }}
+    <div class="my-form-group">
+        {{ form_label(form.message, null, {'label_attr': {'class': 'my-form-sub-title'}}) }}
+        {{ form_widget(form.message, {'attr': {'class': 'my-form-style', 'placeholder': 'Enter your message'}}) }}
     </div>
-    <button class="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer">{{ button_label|default('Save') }}</button>
+    <button class="my-form-btn">{{ button_label|default('Save') }}</button>
+</div>
 {{ form_end(form) }}
