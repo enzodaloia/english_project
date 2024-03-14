@@ -55,13 +55,16 @@
                                 <div class="md:w-full flex justify-center items-center" style="{% if card.image.path %}padding: 0 50px;{% else %}padding: 0 400px;{% endif %}">
                                     <div>
                                         <h5 class="text-3xl font-bold text-gray-900 mb-2">{{ card.title }}</h5>
+                                        <div class="h-1 mx-auto gradient w-64 opacity-25 my-2 py-0 rounded-t"></div>
                                         <p class="text-gray-700 text-base">{{ card.description }}</p>
+                                        {% if card.image.path %}
+                                        {% endif %}
                                     </div>
                                 </div>
                             {% endif %}
                             {% if card.image.path %}
                                 <div class="md:w-full flex justify-center" style="margin-top: 50px; margin-bottom: 50px;">
-                                    <img src="{{ asset(card.image.path) }}" alt="Image" class="object-contain max-h-400 max-w-600" style="{% if not card.description %}width: 100%;{% endif %}">
+                                    <img src="{{ asset(card.image.path) }}" alt="Image" class="object-contain max-h-400 max-w-600" style="max-width: 600px{% if not card.description %}width: 100%;{% endif %}">
                                 </div>
                             {% endif %}
                         </div>
@@ -72,13 +75,16 @@
                                 <div class="md:w-full flex justify-center items-center" style="{% if card.image.path %}padding: 0 50px;{% else %}padding: 0 400px;{% endif %}">
                                     <div>
                                         <h5 class="text-3xl font-bold text-gray-900 mb-2">{{ card.title }}</h5>
+                                        <div class="h-1 mx-auto gradient w-64 opacity-25 my-2 py-0 rounded-t"></div>
                                         <p class="text-gray-700 text-base">{{ card.description }}</p>
+                                        {% if card.image.path %}
+                                        {% endif %}
                                     </div>
                                 </div>
                             {% endif %}
                             {% if card.image.path %}
                                 <div class="md:w-full flex justify-center" style="margin-top: 50px; margin-bottom: 50px;">
-                                    <img src="{{ asset(card.image.path) }}" alt="Image" class="object-contain max-h-400 max-w-600" style="{% if not card.description %}width: 100%;{% endif %}">
+                                    <img src="{{ asset(card.image.path) }}" alt="Image" class="object-contain max-h-400 max-w-600" style="max-width: 600px{% if not card.description %}width: 100%;{% endif %}">
                                 </div>
                             {% endif %}
                         </div>
