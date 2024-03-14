@@ -7,8 +7,7 @@
 import './styles/app.css';
 import './styles/index.css';
 import './styles/documentation.css';
-import './js/documentation.js';
-import 'core-js/modules/es.array.for-each';
-import 'core-js/modules/es.object.to-string';
-import 'core-js/modules/web.dom-collections.for-each';
-//test
+// import './js/documentation.js';
+// import 'core-js/modules/es.array.for-each';
+// import 'core-js/modules/es.object.to-string';
+// import 'core-js/modules/web.dom-collections.for-each';
