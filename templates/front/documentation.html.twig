@@ -41,17 +41,71 @@
         </g>
         </svg>
     </div>
-    {% for card in cards %}
-        {# <img src="{{ asset(card.image.path) }}"></img>
-        {{ card.title }}
-        {{ card.description }}
-        {{ card.type }} #}
-        {% if card.type == 1 %}
-        mon image est à gauche -> car type = {{ card.type }};<br>
-        {% elseif card.type == 2 %}
-        mon image est à droite  -> car type = {{ card.type }};<br>
-        {% endif %}
-    {% endfor %}
+
+
+    <!-- Cards Section with White Background -->
+    <div style="background-color: white;">
+        <div class="py-8 mx-0"> <!-- Cards section with 100% width -->
+            {% for card in cards %}
+                <div class="card-transition shadow-lg mx-0" style="margin-top: 50px; margin-bottom: 50px; min-height: 300px;"> <!-- Card with shadow, no lateral margins, and minimum height -->
+                    {% if card.type == 1 %}
+                        <!-- Type 1: Image on the right, text on the left -->
+                        <div class="flex flex-col md:flex-row items-center gap-8 rounded-lg overflow-hidden" style="width: 100%;">
+                            {% if card.description %}
+                                <div class="md:w-full flex justify-center items-center" style="{% if card.image.path %}padding: 0 50px;{% else %}padding: 0 400px;{% endif %}">
+                                    <div>
+                                        <h5 class="text-3xl font-bold text-gray-900 mb-2">{{ card.title }}</h5>
+                                        <p class="text-gray-700 text-base">{{ card.description }}</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if card.image.path %}
+                                <div class="md:w-full flex justify-center" style="margin-top: 50px; margin-bottom: 50px;">
+                                    <img src="{{ asset(card.image.path) }}" alt="Image" class="object-contain max-h-400 max-w-600" style="{% if not card.description %}width: 100%;{% endif %}">
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% elseif card.type == 2 %}
+                        <!-- Type 2: Image on the left, text on the right -->
+                        <div class="flex flex-col md:flex-row-reverse items-center gap-8 rounded-lg overflow-hidden" style="width: 100%;">
+                            {% if card.description %}
+                                <div class="md:w-full flex justify-center items-center" style="{% if card.image.path %}padding: 0 50px;{% else %}padding: 0 400px;{% endif %}">
+                                    <div>
+                                        <h5 class="text-3xl font-bold text-gray-900 mb-2">{{ card.title }}</h5>
+                                        <p class="text-gray-700 text-base">{{ card.description }}</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if card.image.path %}
+                                <div class="md:w-full flex justify-center" style="margin-top: 50px; margin-bottom: 50px;">
+                                    <img src="{{ asset(card.image.path) }}" alt="Image" class="object-contain max-h-400 max-w-600" style="{% if not card.description %}width: 100%;{% endif %}">
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+<script>
+    // Scroll transition effect
+    window.addEventListener('scroll', () => {
+        document.querySelectorAll('.card-transition').forEach((card) => {
+            const cardPosition = card.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2; // Trigger animation a bit earlier
+            if (cardPosition < screenPosition) {
+                card.style.opacity = 1;
+                card.style.transform = 'translateY(0)';
+            } else {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(50px)';
+            }
+        });
+    });
+</script>
+
 </body>
 
 {% endblock %}

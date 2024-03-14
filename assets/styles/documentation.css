@@ -1,0 +1,29 @@
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+.fadeInUp {
+    animation: fadeInUp 1s ease-out;
+}
+.card-transition {
+    transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.5s;
+    width: 100%; /* Prend toute la largeur */
+}
+.card-transition:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+    .card-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
