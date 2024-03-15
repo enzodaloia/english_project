@@ -45,3 +45,16 @@ h5{
 .link-animation:active {
     scale: 0.95;
 }
+@media (min-width: 768px) {
+    .card-transition {
+        padding: 0 200px; /* Keep the desktop padding */
+    }
+}
+@media (max-width: 767px) {
+    .card-transition {
+        padding: 0 20px; /* Adjust padding for mobile screens */
+    }
+    .card-transition .flex-1 {
+        padding: 0 10px; /* Adjust inner padding for mobile to ensure content is not too squeezed */
+    }
+}
