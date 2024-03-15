@@ -30,3 +30,18 @@
 h5{
     text-align: center;
 }
+
+.link-animation {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+.link-animation:hover {
+    scale: 1.05;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.link-animation:active {
+    scale: 0.95;
+}
