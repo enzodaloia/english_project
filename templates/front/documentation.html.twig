@@ -47,36 +47,40 @@
     <div style="background-color: white;">
         <div class="py-8 mx-0"> <!-- Cards section with 100% width -->
             {% for card in cards %}
-                <div class="card-transition mx-0" style="margin-top: 50px; margin-bottom: 50px; min-height: 300px; padding: 0 200px"> <!-- Card with shadow, no lateral margins, and minimum height -->
+                <div class="card-transition mx-0 shadow-lg" style="margin-top: 50px; margin-bottom: 50px; min-height: 300px;"> <!-- Card with shadow and minimum height -->
                     {% if card.type == 1 %}
                         <!-- Type 1: Image on the right, text on the left -->
-                        <div class="flex flex-col md:flex-row items-center gap-8 rounded-lg overflow-hidden" style="width: 100%;">
-                            <div class="md:flex-1 flex justify-center items-center" style="padding: 0 50px;">
-                                <div>
-                                    <h5 class="text-3xl font-bold text-gray-900 mb-2" style="{% if not card.image or not card.image.path %}margin-top: 50px;{% endif %}">{{ card.title }}</h5>
-                                    <div class="h-1 mx-auto gradient w-64 opacity-25 my-2 py-0 rounded-t"></div>
-                                    <p class="text-gray-700 text-base" style="{% if not card.image or not card.image.path %}margin-top: 20px;{% endif %}">{{ card.description }}</p>
-                                </div>
+                        <div class="flex flex-col md:flex-row items-center md:items-stretch gap-8 rounded-lg overflow-hidden" style="width: 100%;">
+                            <div class="w-full md:flex-1" style="padding: 20px;"> <!-- Adjust padding for mobile -->
+                                {% if card.description %}
+                                    <div>
+                                        <h5 class="text-3xl font-bold text-gray-900 mb-2">{{ card.title }}</h5>
+                                        <div class="h-1 mx-auto gradient w-64 opacity-25 my-2 py-0 rounded-t"></div>
+                                        <p class="text-gray-700 text-base">{{ card.description }}</p>
+                                    </div>
+                                {% endif %}
                             </div>
                             {% if card.image and card.image.path %}
-                                <div class="md:flex-1 flex justify-center" style="margin-top: 50px; margin-bottom: 50px;">
-                                    <img src="{{ asset(card.image.path) }}" alt="Image" class="object-contain max-h-400 max-w-600">
+                                <div class="w-full md:flex-1 flex justify-center" style="padding: 20px;"> <!-- Adjust padding and set width for mobile -->
+                                    <img src="{{ asset(card.image.path) }}" alt="Image" class="max-h-400 max-w-full"> <!-- Adjust width to max-w-full for mobile -->
                                 </div>
                             {% endif %}
                         </div>
                     {% elseif card.type == 2 %}
                         <!-- Type 2: Image on the left, text on the right -->
-                        <div class="flex flex-col md:flex-row-reverse items-center gap-8 rounded-lg overflow-hidden" style="width: 100%;">
-                            <div class="md:flex-1 flex justify-center items-center" style="padding: 0 50px;">
-                                <div>
-                                    <h5 class="text-3xl font-bold text-gray-900 mb-2" style="{% if not card.image or not card.image.path %}margin-top: 50px;{% endif %}">{{ card.title }}</h5>
-                                    <div class="h-1 mx-auto gradient w-64 opacity-25 my-2 py-0 rounded-t"></div>
-                                    <p class="text-gray-700 text-base" style="{% if not card.image or not card.image.path %}margin-top: 20px;{% endif %}">{{ card.description }}</p>
-                                </div>
+                        <div class="flex flex-col md:flex-row-reverse items-center md:items-stretch gap-8 rounded-lg overflow-hidden" style="width: 100%;">
+                            <div class="w-full md:flex-1" style="padding: 20px;"> <!-- Adjust padding for mobile -->
+                                {% if card.description %}
+                                    <div>
+                                        <h5 class="text-3xl font-bold text-gray-900 mb-2">{{ card.title }}</h5>
+                                        <div class="h-1 mx-auto gradient w-64 opacity-25 my-2 py-0 rounded-t"></div>
+                                        <p class="text-gray-700 text-base">{{ card.description }}</p>
+                                    </div>
+                                {% endif %}
                             </div>
                             {% if card.image and card.image.path %}
-                                <div class="md:flex-1 flex justify-center" style="margin-top: 50px; margin-bottom: 50px;">
-                                    <img src="{{ asset(card.image.path) }}" alt="Image" class="object-contain max-h-400 max-w-600">
+                                <div class="w-full md:flex-1 flex justify-center" style="padding: 20px;"> <!-- Adjust padding and set width for mobile -->
+                                    <img src="{{ asset(card.image.path) }}" alt="Image" class="max-h-400 max-w-full"> <!-- Adjust width to max-w-full for mobile -->
                                 </div>
                             {% endif %}
                         </div>
@@ -85,7 +89,6 @@
             {% endfor %}
         </div>
     </div>
-
 
 
 
