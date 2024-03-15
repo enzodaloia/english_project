@@ -94,3 +94,62 @@ h5{
 }
 
 
+.link-animation:hover {
+    /* Animation au survol */
+    background-color: #F3F4F6; /* Un peu plus clair que le fond initial */
+    color: #4B5563; /* Un gris un peu plus foncé pour le texte */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.link-animation:active {
+    /* Animation au clic */
+    transform: scale(0.95); /* Légère réduction de la taille */
+    background-color: #E5E7EB; /* Un peu plus foncé que le hover */
+}
+
+.animate-fadeIn {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-pop {
+    transition: transform 0.3s ease;
+}
+
+.animate-pop:hover {
+    transform: scale(1.05);
+}
+
+.animate-widen {
+    animation: widen 2s ease-out infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes widen {
+    0%, 100% {
+        transform: scaleX(1);
+    }
+    50% {
+        transform: scaleX(1.5);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}

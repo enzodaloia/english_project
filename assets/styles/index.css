@@ -41,3 +41,19 @@ section.bg-white.border-b.py-8 .mx-auto.lg:mx-0.hover:underline.gradient.text-wh
     background-color: #4FD1C5; /* Ajustez cette couleur pour qu'elle corresponde à votre design */
     transform: scale(1.05);
 }
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 40px, 0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+}
