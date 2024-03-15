@@ -47,11 +47,11 @@
     <div style="background-color: white;">
         <div class="py-8 mx-0"> <!-- Cards section with 100% width -->
             {% for card in cards %}
-                <div class="card-transition mx-0 shadow-lg" style="margin-top: 50px; margin-bottom: 50px; min-height: 300px;"> <!-- Card with shadow and minimum height -->
+                <div class="card-transition mx-0" style="margin-top: 50px; margin-bottom: 50px; min-height: 300px;">
                     {% if card.type == 1 %}
                         <!-- Type 1: Image on the right, text on the left -->
                         <div class="flex flex-col md:flex-row items-center gap-8 rounded-lg overflow-hidden" style="width: 100%;">
-                            <div class="flex-1" style="padding: 0 50px;"> <!-- Responsive padding -->
+                            <div class="flex-1 flex justify-center items-center text-center" style="padding: 50px;">
                                 <div>
                                     <h5 class="text-3xl font-bold text-gray-900 mb-2">{{ card.title }}</h5>
                                     <div class="h-1 mx-auto gradient w-64 opacity-25 my-2 py-0 rounded-t"></div>
@@ -59,15 +59,15 @@
                                 </div>
                             </div>
                             {% if card.image and card.image.path %}
-                                <div class="flex-1 flex justify-center" style="padding: 0 50px;"> <!-- Responsive padding -->
-                                    <img src="{{ asset(card.image.path) }}" alt="Image" class="max-h-400 max-w-full"> <!-- Adaptive width for images -->
+                                <div class="flex-1 flex justify-center" style="padding: 50px;">
+                                    <img src="{{ asset(card.image.path) }}" alt="Image" class="object-contain max-h-400 max-w-600">
                                 </div>
                             {% endif %}
                         </div>
                     {% elseif card.type == 2 %}
                         <!-- Type 2: Image on the left, text on the right -->
                         <div class="flex flex-col md:flex-row-reverse items-center gap-8 rounded-lg overflow-hidden" style="width: 100%;">
-                            <div class="flex-1" style="padding: 0 50px;"> <!-- Responsive padding -->
+                            <div class="flex-1 flex justify-center items-center text-center" style="padding: 50px;">
                                 <div>
                                     <h5 class="text-3xl font-bold text-gray-900 mb-2">{{ card.title }}</h5>
                                     <div class="h-1 mx-auto gradient w-64 opacity-25 my-2 py-0 rounded-t"></div>
@@ -75,8 +75,8 @@
                                 </div>
                             </div>
                             {% if card.image and card.image.path %}
-                                <div class="flex-1 flex justify-center" style="padding: 0 50px;"> <!-- Responsive padding -->
-                                    <img src="{{ asset(card.image.path) }}" alt="Image" class="max-h-400 max-w-full"> <!-- Adaptive width for images -->
+                                <div class="flex-1 flex justify-center" style="padding: 50px;">
+                                    <img src="{{ asset(card.image.path) }}" alt="Image" class="object-contain max-h-400 max-w-600">
                                 </div>
                             {% endif %}
                         </div>

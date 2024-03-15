@@ -45,16 +45,52 @@ h5{
 .link-animation:active {
     scale: 0.95;
 }
+
+
+@media (max-width: 768px) {
+    .cards-container .card-transition {
+        padding: 0 15px; /* Ajuste le padding général des cartes */
+    }
+
+    .cards-container .text-container, .cards-container .image-container {
+        padding: 0 10px; /* Ajuste le padding intérieur pour le texte et les images */
+        flex-basis: 100%; /* Assure que le texte et les images prennent toute la largeur */
+    }
+
+    .cards-container .card-transition .flex {
+        flex-direction: column; /* Change la disposition des éléments en colonne */
+    }
+}
+
+/* Style général pour le fond des cartes */
+.card-transition {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    min-height: 300px;
+}
+
+/* Réglage pour les écrans de type desktop */
 @media (min-width: 768px) {
     .card-transition {
-        padding: 0 200px; /* Keep the desktop padding */
+        padding: 0 200px; /* Padding spécifié pour desktop */
+    }
+
+    .card-transition .flex-1 img {
+        max-height: 400px;
+        max-width: 600px; /* Taille maximale des images pour desktop */
+        border-radius: 20px;
     }
 }
+
+/* Adaptations pour les mobiles et tablettes */
 @media (max-width: 767px) {
     .card-transition {
-        padding: 0 20px; /* Adjust padding for mobile screens */
+        padding: 0 20px; /* Padding réduit pour les écrans plus petits */
     }
+
     .card-transition .flex-1 {
-        padding: 0 10px; /* Adjust inner padding for mobile to ensure content is not too squeezed */
+        padding: 20px 0; /* Ajustement du padding pour le contenu des cartes sur petits écrans */
     }
 }
+
+
