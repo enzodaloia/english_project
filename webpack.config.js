@@ -12,7 +12,7 @@ Encore
     // public path used by the web server to access the output path
 
     .setPublicPath('/build') // dev
-    // .setPublicPath('/english_project/build') // prod
+    //.setPublicPath('/english_project/build') // prod
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/') //prod
 

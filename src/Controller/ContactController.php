@@ -11,10 +11,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/contact')]
+#[Route('/admin/contact')]
 class ContactController extends AbstractController
 {
-    #[Route('admin/', name: 'app_contact_index', methods: ['GET'])]
+    #[Route('/', name: 'app_contact_index', methods: ['GET'])]
     public function index(ContactRepository $contactRepository): Response
     {
         return $this->render('back/contact/index.html.twig', [
